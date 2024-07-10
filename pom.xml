@@ -31,7 +31,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
         <skipTests>true</skipTests>
-        <docker.host>http://192.168.3.101:2375</docker.host>
+        <docker.host>http://192.168.20.203:2375</docker.host>
         <docker.maven.plugin.version>0.40.2</docker.maven.plugin.version>
         <pagehelper-starter.version>1.4.5</pagehelper-starter.version>
         <pagehelper.version>5.3.2</pagehelper.version>
@@ -265,11 +265,11 @@
             <name>aliyun</name>
             <url>https://maven.aliyun.com/repository/public</url>
         </repository>
-        <repository>
+<!--        <repository>
             <id>central2</id>
             <name>central2</name>
             <url>https://repo1.maven.org/maven2/</url>
-        </repository>
+        </repository>-->
     </repositories>
 
 </project>
