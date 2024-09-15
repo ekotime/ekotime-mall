@@ -112,4 +112,14 @@ public class OmsPortalOrderController {
         portalOrderService.deleteOrder(orderId);
         return CommonResult.success(null);
     }
+    
+    @ApiOperation("openorder")
+    @ApiImplicitParam(name = "status", value = "订单状态：-1->全部；0->待付款；1->待发货；2->已发货；3->已完成；4->已关闭",
+            defaultValue = "-1", allowableValues = "-1,0,1,2,3,4", paramType = "query", dataType = "int")
+    @RequestMapping(value = "/openorderList", method = RequestMethod.GET)
+    @ResponseBody
+    public CommonResult openorderList(@RequestParam String key) {
+    	String openorderList = portalOrderService.openorderList(key);
+        return CommonResult.success(openorderList);
+    }
 }

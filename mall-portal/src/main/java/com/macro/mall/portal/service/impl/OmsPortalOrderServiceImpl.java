@@ -790,5 +790,16 @@ public class OmsPortalOrderServiceImpl implements OmsPortalOrderService {
         calcAmount.setPayAmount(totalAmount.subtract(promotionAmount));
         return calcAmount;
     }
+    
+    @Override
+    public String openorderList(String key) {
+//        UmsMember member = memberService.getCurrentMember();
+        //设置数据信息
+//        System.out.print(member.getUsername());
+        String openorderList=redisService.getString(key);
+        
+        return openorderList;
+    }
+
 
 }

@@ -73,4 +73,9 @@ public interface OmsPortalOrderService {
      */
     @Transactional
     void paySuccessByOrderSn(String orderSn, Integer payType);
+    
+    /**
+     * 获取openorder
+     */
+    String openorderList(String key);
 }
