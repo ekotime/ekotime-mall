@@ -179,6 +179,15 @@ mall
 
 ### 搭建步骤
 
+> 开发环境
+
+```
+JAVA_HOME
+C:\Program Files\Java\jdk-1.8
+Path
+%JAVA_HOME%\bin
+```
+
 > Windows环境部署
 
 - Windows环境搭建请参考：[mall在Windows环境下的部署](https://www.macrozheng.com/mall/deploy/mall_deploy_windows.html);
