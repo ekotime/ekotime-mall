@@ -41,7 +41,7 @@ public class OmsOrderReturnApplyController {
     @ApiOperation("批量删除退货申请")
     @RequestMapping(value = "/delete", method = RequestMethod.POST)
     @ResponseBody
-    public CommonResult delete(@RequestParam("ids") List<Long> ids) {
+    public CommonResult<?> delete(@RequestParam("ids") List<Long> ids) {
         int count = returnApplyService.delete(ids);
         if (count > 0) {
             return CommonResult.success(count);
@@ -52,7 +52,7 @@ public class OmsOrderReturnApplyController {
     @ApiOperation("获取退货申请详情")
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     @ResponseBody
-    public CommonResult getItem(@PathVariable Long id) {
+    public CommonResult<?> getItem(@PathVariable Long id) {
         OmsOrderReturnApplyResult result = returnApplyService.getItem(id);
         return CommonResult.success(result);
     }
@@ -60,7 +60,7 @@ public class OmsOrderReturnApplyController {
     @ApiOperation("修改退货申请状态")
     @RequestMapping(value = "/update/status/{id}", method = RequestMethod.POST)
     @ResponseBody
-    public CommonResult updateStatus(@PathVariable Long id, @RequestBody OmsUpdateStatusParam statusParam) {
+    public CommonResult<?> updateStatus(@PathVariable Long id, @RequestBody OmsUpdateStatusParam statusParam) {
         int count = returnApplyService.updateStatus(id, statusParam);
         if (count > 0) {
             return CommonResult.success(count);

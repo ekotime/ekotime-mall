@@ -29,7 +29,7 @@ public class PmsProductAttributeCategoryController {
     @ApiOperation("添加商品属性分类")
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     @ResponseBody
-    public CommonResult create(@RequestParam String name) {
+    public CommonResult<?> create(@RequestParam String name) {
         int count = productAttributeCategoryService.create(name);
         if (count > 0) {
             return CommonResult.success(count);
@@ -41,7 +41,7 @@ public class PmsProductAttributeCategoryController {
     @ApiOperation("修改商品属性分类")
     @RequestMapping(value = "/update/{id}", method = RequestMethod.POST)
     @ResponseBody
-    public CommonResult update(@PathVariable Long id, @RequestParam String name) {
+    public CommonResult<?> update(@PathVariable Long id, @RequestParam String name) {
         int count = productAttributeCategoryService.update(id, name);
         if (count > 0) {
             return CommonResult.success(count);
@@ -53,7 +53,7 @@ public class PmsProductAttributeCategoryController {
     @ApiOperation("删除单个商品属性分类")
     @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
     @ResponseBody
-    public CommonResult delete(@PathVariable Long id) {
+    public CommonResult<?> delete(@PathVariable Long id) {
         int count = productAttributeCategoryService.delete(id);
         if (count > 0) {
             return CommonResult.success(count);

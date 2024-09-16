@@ -307,7 +307,7 @@ public class PmsProductServiceImpl implements PmsProductService {
      * @param dataList  要插入的数据
      * @param productId 建立关系的id
      */
-    private void relateAndInsertList(Object dao, List dataList, Long productId) {
+    private void relateAndInsertList(Object dao, List<?> dataList, Long productId) {
         try {
             if (CollectionUtils.isEmpty(dataList)) return;
             for (Object item : dataList) {

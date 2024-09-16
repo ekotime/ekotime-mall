@@ -28,7 +28,7 @@ public class SmsFlashPromotionController {
     @ApiOperation("添加活动")
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     @ResponseBody
-    public CommonResult create(@RequestBody SmsFlashPromotion flashPromotion) {
+    public CommonResult<?> create(@RequestBody SmsFlashPromotion flashPromotion) {
         int count = flashPromotionService.create(flashPromotion);
         if (count > 0) {
             return CommonResult.success(count);
@@ -39,7 +39,7 @@ public class SmsFlashPromotionController {
     @ApiOperation("编辑活动")
     @RequestMapping(value = "/update/{id}", method = RequestMethod.POST)
     @ResponseBody
-    public CommonResult update(@PathVariable Long id, @RequestBody SmsFlashPromotion flashPromotion) {
+    public CommonResult<?> update(@PathVariable Long id, @RequestBody SmsFlashPromotion flashPromotion) {
         int count = flashPromotionService.update(id, flashPromotion);
         if (count > 0) {
             return CommonResult.success(count);
@@ -50,7 +50,7 @@ public class SmsFlashPromotionController {
     @ApiOperation("删除活动")
     @RequestMapping(value = "/delete/{id}", method = RequestMethod.POST)
     @ResponseBody
-    public CommonResult delete(@PathVariable Long id) {
+    public CommonResult<?> delete(@PathVariable Long id) {
         int count = flashPromotionService.delete(id);
         if (count > 0) {
             return CommonResult.success(count);
@@ -61,7 +61,7 @@ public class SmsFlashPromotionController {
     @ApiOperation("修改上下线状态")
     @RequestMapping(value = "/update/status/{id}", method = RequestMethod.POST)
     @ResponseBody
-    public CommonResult update(@PathVariable Long id, Integer status) {
+    public CommonResult<?> update(@PathVariable Long id, Integer status) {
         int count = flashPromotionService.updateStatus(id, status);
         if (count > 0) {
             return CommonResult.success(count);
