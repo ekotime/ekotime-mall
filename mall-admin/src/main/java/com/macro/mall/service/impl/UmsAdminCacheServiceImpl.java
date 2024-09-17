@@ -104,7 +104,15 @@ public class UmsAdminCacheServiceImpl implements UmsAdminCacheService {
     @Override
     public List<UmsResource> getResourceList(Long adminId) {
         String key = REDIS_DATABASE + ":" + REDIS_KEY_RESOURCE_LIST + ":" + adminId;
-        return (List<UmsResource>) redisService.get(key);
+        Object object = redisService.get(key);
+        if (object instanceof List<?>) {
+            return ((List<?>) object).stream()
+                .filter(item -> item instanceof UmsResource)
+                .map(item -> (UmsResource) item)
+                .collect(Collectors.toList());
+        }
+        return null;
+        //return (List<UmsResource>) redisService.get(key);
     }
 
     @Override
