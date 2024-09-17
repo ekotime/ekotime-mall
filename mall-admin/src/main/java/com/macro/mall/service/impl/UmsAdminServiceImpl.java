@@ -137,6 +137,7 @@ public class UmsAdminServiceImpl implements UmsAdminService {
     /**
      * 根据用户名修改登录时间
      */
+    @SuppressWarnings("unused")
     private void updateLoginTimeByUsername(String username) {
         UmsAdmin record = new UmsAdmin();
         record.setLoginTime(new Date());

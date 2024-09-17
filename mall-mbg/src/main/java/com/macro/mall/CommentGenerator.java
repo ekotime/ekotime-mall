@@ -51,6 +51,7 @@ public class CommentGenerator extends DefaultCommentGenerator {
     /**
      * 给model的字段添加注释
      */
+    @SuppressWarnings("unused")
     private void addFieldJavaDoc(Field field, String remarks) {
         //文档注释开始
         field.addJavaDocLine("/**");
