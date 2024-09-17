@@ -26,13 +26,12 @@ public class RequestUtil {
             ipAddress = request.getRemoteAddr();
             // 从本地访问时根据网卡取本机配置的IP
             if (ipAddress.equals("127.0.0.1") || ipAddress.equals("0:0:0:0:0:0:0:1")) {
-                InetAddress inetAddress = null;
                 try {
-                    inetAddress = InetAddress.getLocalHost();
+                    InetAddress inetAddress = InetAddress.getLocalHost();
+                    ipAddress = inetAddress != null ? inetAddress.getHostAddress() : ipAddress;
                 } catch (UnknownHostException e) {
                     e.printStackTrace();
                 }
-                ipAddress = inetAddress.getHostAddress();
             }
         }
         // 通过多个代理转发的情况，第一个IP为客户端真实IP，多个IP会按照','分割

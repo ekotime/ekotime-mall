@@ -56,6 +56,9 @@ public class WebLogAspect {
         long startTime = System.currentTimeMillis();
         //获取当前请求对象
         ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
+        if (attributes == null) {
+            return joinPoint.proceed();
+        }
         HttpServletRequest request = attributes.getRequest();
         //记录请求信息(通过Logstash传入Elasticsearch)
         WebLog webLog = new WebLog();

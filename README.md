@@ -160,6 +160,8 @@ mall
 > 项目编译打包
 
 ```bash
+# clean all modules, build and install all modules, skip tests.
+mvn clean install -DskipTests
 #这个命令会在你的项目路径下一个target目录，并且拥有compile命令的功能进行编译，同时会在target目录下生成项目的jar/war文件
 mvn clean package 
 ```

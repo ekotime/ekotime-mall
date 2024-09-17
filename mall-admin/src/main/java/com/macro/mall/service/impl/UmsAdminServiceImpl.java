@@ -196,6 +196,7 @@ public class UmsAdminServiceImpl implements UmsAdminService {
         return count;
     }
 
+    @SuppressWarnings("null")
     @Override
     public int updateRole(Long adminId, List<Long> roleIds) {
         int count = roleIds == null ? 0 : roleIds.size();

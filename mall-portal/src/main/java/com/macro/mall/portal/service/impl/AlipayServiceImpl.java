@@ -116,16 +116,20 @@ public class AlipayServiceImpl implements AlipayService {
         } catch (AlipayApiException e) {
             log.error("查询支付宝账单异常！",e);
         }
-        if(response.isSuccess()){
-            log.info("查询支付宝账单成功！");
-            if("TRADE_SUCCESS".equals(response.getTradeStatus())){
-                portalOrderService.paySuccessByOrderSn(outTradeNo,1);
+        if (response != null) {
+            if(response.isSuccess()){
+                log.info("查询支付宝账单成功！");
+                if("TRADE_SUCCESS".equals(response.getTradeStatus())){
+                    portalOrderService.paySuccessByOrderSn(outTradeNo,1);
+                }
+            } else {
+                log.error("查询支付宝账单失败！");
             }
         } else {
-            log.error("查询支付宝账单失败！");
+            log.error("查询支付宝账单失败：响应为空");
         }
         //交易状态：WAIT_BUYER_PAY（交易创建，等待买家付款）、TRADE_CLOSED（未付款交易超时关闭，或支付完成后全额退款）、TRADE_SUCCESS（交易支付成功）、TRADE_FINISHED（交易结束，不可退款）
-        return response.getTradeStatus();
+        return response != null ? response.getTradeStatus() : null;
     }
 
     @Override

@@ -20,6 +20,7 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+import org.springframework.lang.Nullable;
 
 /**
  * Swagger基础配置
@@ -86,7 +87,7 @@ public abstract class BaseSwaggerConfig {
         return new BeanPostProcessor() {
 
             @Override
-            public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
+            public Object postProcessAfterInitialization(@Nullable Object bean, @Nullable String beanName) throws BeansException {
                 if (bean instanceof WebMvcRequestHandlerProvider || bean instanceof WebFluxRequestHandlerProvider) {
                     customizeSpringfoxHandlerMappings(getHandlerMappings(bean));
                 }
@@ -105,6 +106,9 @@ public abstract class BaseSwaggerConfig {
             private List<RequestMappingInfoHandlerMapping> getHandlerMappings(Object bean) {
                 try {
                     Field field = ReflectionUtils.findField(bean.getClass(), "handlerMappings");
+                    if (field == null) {
+                        throw new IllegalStateException("Unable to find 'handlerMappings' field");
+                    }
                     field.setAccessible(true);
                     return (List<RequestMappingInfoHandlerMapping>) field.get(bean);
                 } catch (IllegalArgumentException | IllegalAccessException e) {
