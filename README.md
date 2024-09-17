@@ -150,11 +150,16 @@ mall
 | JAVA  | JAVA_HOME  | C:\Program Files\Java\jdk-1.8  | Path | %JAVA_HOME%\bin;  |
 | MAVEN | MAVEN_HOME | D:\software\apache-maven-3.9.9 | Path | %MAVEN_HOME%\bin; |
 
+> Cursor/Vscode 配置
+
+| 变量名 | 变量值  |
+| ---- | ------ |
+| java.configuration.maven | D:\software\apache-maven-3.9.9\conf\settings.xml |
+| maven.executable.path | D:\software\apache-maven-3.9.9\bin\mvn |
+
 > 项目编译打包
 
 ```bash
-#编译
-mvn compile
 #这个命令会在你的项目路径下一个target目录，并且拥有compile命令的功能进行编译，同时会在target目录下生成项目的jar/war文件
 mvn clean package 
 ```
