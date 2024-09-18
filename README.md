@@ -147,8 +147,8 @@ mall
 
 | 项 | 变量名  | 变量值  | Path | 变量值  |
 | ---- | ------ | --------|--------|------- |
-| JAVA  | JAVA_HOME  | C:\Program Files\Java\jdk-1.8  | Path | %JAVA_HOME%\bin;  |
-| MAVEN | MAVEN_HOME | D:\software\apache-maven-3.9.9 | Path | %MAVEN_HOME%\bin; |
+| JAVA  | JAVA_HOME  | C:\Program Files\Java\jdk-1.8  | Path | %JAVA_HOME%\bin  |
+| MAVEN | MAVEN_HOME | D:\software\apache-maven-3.9.9 | Path | %MAVEN_HOME%\bin |
 
 > Cursor/Vscode 配置
 
