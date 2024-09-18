@@ -155,7 +155,6 @@ mall
 | 变量名 | 变量值  |
 | ---- | ------ |
 | java.configuration.maven | D:\software\apache-maven-3.9.9\conf\settings.xml |
-| maven.executable.path | D:\software\apache-maven-3.9.9\bin\mvn |
 
 > 项目编译打包
 
